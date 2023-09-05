@@ -22,9 +22,8 @@ async function getHousesFromWeb() {
 		}_NoIndex_True`
 	);
 
-	// Get the HTML code of the webpage
-	const html = response.data;
-	const $ = load(html);
+	
+	const $ = load(response.data);
 
 	// Find all elements with ui-search-result__wrapper class, in div element.
 	$("div.ui-search-result__wrapper").each((_index, el) => {
