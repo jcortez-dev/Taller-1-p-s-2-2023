@@ -1,9 +1,9 @@
 import axios from "axios";
 import { load } from "cheerio";
-import fs from "fs";
 import yargs from "yargs";
 import { hideBin } from "yargs/helpers";
 import filterByPrice from "./filter-by-price.js";
+import writeFile from "./util.js"
 const argv = yargs(hideBin(process.argv)).argv;
 
 const city = argv.location || "temuco-la-araucania";
@@ -80,16 +80,7 @@ getHousesFromWeb().then(async () => {
 		};
 	});
 
-	fs.writeFile(
-		`./json/${city}.json`,
-		JSON.stringify(housesWithPriceInCLP),
-		function (err) {
-			if (err) {
-				console.log(err);
-			}
-			console.log(`${city} JSON generated successfully`);
-		}
-	);
+	writeFile(city, housesWithPriceInCLP);
 
 	if (argv.maximumPrice) {
 		filterByPrice({
