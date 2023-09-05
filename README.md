@@ -1,6 +1,9 @@
 # Taller 1 - Pruebas de software
 
-Description here
+### Integrantes
+
+Rodrigo Brevis r.brevis01@ufromail.cl <br>
+Jorge Cortez j.cortez01@ufromail.cl
 
 ### Install libraries
 
